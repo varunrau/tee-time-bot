@@ -4,15 +4,7 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-(async function run() {
-  if (process.argv.length < 5) {
-    console.log("not enough arguments")
-    return;
-  }
-
-  const email = process.argv[2];
-  const password = process.argv[3];
-  const date = process.argv[4];
+async function run(email, password, date) {
 
   const browser = await puppeteer.launch({
     headless: false,
@@ -73,6 +65,8 @@ function sleep(ms) {
   }
 
   await page.click('.reserve-time .start')
-})();
+};
 
-console.log(process.argv[2])
+module.exports = {
+  run: run,
+};

@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 
 function createWindow () {
   // Create the browser window.
@@ -40,6 +40,9 @@ app.on('activate', () => {
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+const run = require('./run.js').run;
+ipcMain.on('run-puppeteer', (event, args) => {
+  const { email, password, date } = args;
+  run(email, password, date);
+})
 

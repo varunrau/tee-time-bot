@@ -1,4 +1,5 @@
 const moment = require("moment");
+const { ipcRenderer } = require("electron");
 
 document.addEventListener("DOMContentLoaded", () => {
   const dateSelect = document.getElementById("date");
@@ -14,11 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const date = document.getElementById("date").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    const { spawn } = require('child_process');
-    const runCmd = spawn("node",["/Users/varun/code/js/tee-time-bot/run.js", email, password, date]);
-    runCmd.stdout.on('data', (data) => {
-      console.log(data.toString())
-    })
+    ipcRenderer.sendSync('run-puppeteer', {
+      email, password, date
+    });
   });
 });
 
