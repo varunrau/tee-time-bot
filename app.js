@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const dateSelect = document.getElementById("date");
 
   const dates = Array(8).fill().map((_, i) => {
-    const d = moment().add(i, 'days').format('MM-DD-YYYY');
+    const d = moment().add(7 - i, 'days').format('MM-DD-YYYY');
     const option = document.createElement("option");
     option.text = d;
     dateSelect.add(option);
