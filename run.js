@@ -25,6 +25,7 @@ async function run(email, password, date) {
 
   console.log("going to page")
 
+  await page.waitFor(5000);
   await page.click('.booking-classes button:nth-child(4)', {delay: 500})
 
   await sleep(5000)
