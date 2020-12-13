@@ -31,7 +31,7 @@ async function run(email, password, date, hour) {
   console.log("going to page");
 
   await page.waitFor(5000);
-  await page.click(".booking-classes button:nth-child(4)", { delay: 500 });
+  await page.click(".booking-classes button:nth-child(5)", { delay: 500 });
 
   await sleep(5000);
   console.log("waited for 5 seconds");
