@@ -42,6 +42,6 @@ app.on("activate", () => {
 
 const run = require("./run.js").run;
 ipcMain.on("run-puppeteer", (event, args) => {
-  const { email, password, date, hour } = args;
-  run(email, password, date, hour);
+  const { date, hour } = args;
+  run(date, hour);
 });

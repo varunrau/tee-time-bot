@@ -34,12 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById("start-btn").addEventListener("click", () => {
     const date = document.getElementById("date").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
     const hour = document.getElementById("hour").value;
     ipcRenderer.sendSync("run-puppeteer", {
-      email,
-      password,
       date,
       hour,
     });

@@ -1,11 +1,17 @@
 const puppeteer = require("puppeteer");
 const moment = require("moment");
+const fs = require("fs")
+const os = require("os")
+
+const credentials = fs.readFileSync(`${os.homedir()}/teetimebot.json`)
+const credsJSON = JSON.parse(credentials)
+const { email, password } = credsJSON
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-async function run(email, password, date, hour) {
+async function run(date, hour) {
   const browser = await puppeteer.launch({
     headless: false,
   });
@@ -31,7 +37,7 @@ async function run(email, password, date, hour) {
   console.log("going to page");
 
   await page.waitFor(5000);
-  await page.click(".booking-classes button:nth-child(5)", { delay: 500 });
+  await page.click(".booking-classes button:nth-child(6)", { delay: 500 });
 
   await sleep(5000);
   console.log("waited for 5 seconds");
