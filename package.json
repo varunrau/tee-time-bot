@@ -7,7 +7,7 @@
         "package": "./node_modules/.bin/electron-packager . 'Tee Time Bot' --platform=darwin --arch=x64 --icon=icon.icns --overwrite"
     },
     "dependencies": {
-        "moment": "^2.27.0",
+        "moment": "^2.29.4",
         "puppeteer": "^5.1.0"
     },
     "devDependencies": {
